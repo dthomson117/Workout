@@ -1,0 +1,11 @@
+import com.benasher44.uuid.Uuid;
+
+CREATE TABLE Sets (
+    id INTEGER AS Uuid PRIMARY KEY NOT NULL,
+    reps INTEGER NOT NULL,
+    weight INTEGER NOT NULL,
+    exercise INTEGER AS Uuid NOT NULL,
+    workout INTEGER AS Uuid NOT NULL
+);
+
+CREATE UNIQUE INDEX SET_UUID ON Sets(id);

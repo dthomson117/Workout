@@ -1,0 +1,11 @@
+import com.chrynan.colors.Color;
+import com.benasher44.uuid.Uuid;
+
+CREATE TABLE Split (
+    id INTEGER AS Uuid PRIMARY KEY NOT NULL,
+    name TEXT NOT NULL,
+    current INTEGER NOT NULL,
+    colour INTEGER AS Color NOT NULL
+);
+
+CREATE UNIQUE INDEX SPLIT_UUID ON Split(id);

@@ -1,0 +1,9 @@
+import com.benasher44.uuid.Uuid;
+
+CREATE TABLE Split_Exercise (
+    id INTEGER AS Uuid PRIMARY KEY NOT NULL,
+    split INTEGER AS Uuid NOT NULL,
+    exercise INTEGER AS Uuid NOT NULL
+);
+
+CREATE UNIQUE INDEX SPLIT_EXERCISE_UUID ON Split_Exercise(id);

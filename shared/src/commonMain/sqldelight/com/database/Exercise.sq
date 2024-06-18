@@ -1,0 +1,9 @@
+import com.benasher44.uuid.Uuid;
+
+
+CREATE TABLE Exercise (
+    id INTEGER AS Uuid PRIMARY KEY NOT NULL,
+    name TEXT NOT NULL
+);
+
+CREATE UNIQUE INDEX Exercise_UUID ON Exercise(id);

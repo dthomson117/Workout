@@ -1,0 +1,9 @@
+import java.util.UUID;
+
+CREATE TABLE Workout (
+    id INTEGER AS UUID PRIMARY KEY NOT NULL,
+    day INTEGER AS UUID NOT NULL,
+    progress REAL NOT NULL
+);
+
+CREATE UNIQUE INDEX WORKOUT_UUID ON Workout(id);
