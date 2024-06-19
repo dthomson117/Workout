@@ -2,7 +2,7 @@ import kotlinx.datetime.LocalDate;
 import com.benasher44.uuid.Uuid;
 
 CREATE TABLE Day (
-    id INTEGER AS Uuid PRIMARY KEY NOT NULL,
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     date TEXT AS LocalDate NOT NULL,
     progress REAL NOT NULL
 );

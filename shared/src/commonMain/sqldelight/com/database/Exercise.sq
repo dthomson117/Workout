@@ -2,7 +2,7 @@ import com.benasher44.uuid.Uuid;
 
 
 CREATE TABLE Exercise (
-    id INTEGER AS Uuid PRIMARY KEY NOT NULL,
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     name TEXT NOT NULL
 );
 
