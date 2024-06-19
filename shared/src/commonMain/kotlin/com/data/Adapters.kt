@@ -16,16 +16,6 @@ val localDateAdapter = object : ColumnAdapter<LocalDate, String> {
     }
 }
 
-val uuidAdapter = object : ColumnAdapter<Uuid, String> {
-    override fun decode(databaseValue: String): Uuid {
-        return uuidFrom(databaseValue)
-    }
-
-    override fun encode(value: Uuid): String {
-        return value.toString()
-    }
-}
-
 val colorAdapter = object : ColumnAdapter<Color, String> {
     override fun decode(databaseValue: String): Color {
         return Color(databaseValue)
