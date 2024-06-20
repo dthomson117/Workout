@@ -1,5 +1,4 @@
 import kotlinx.datetime.LocalDate;
-import com.benasher44.uuid.Uuid;
 
 CREATE TABLE Day (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,

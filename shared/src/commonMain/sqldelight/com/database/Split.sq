@@ -1,5 +1,4 @@
 import com.chrynan.colors.Color;
-import com.benasher44.uuid.Uuid;
 
 CREATE TABLE Split (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
