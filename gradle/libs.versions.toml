@@ -1,12 +1,19 @@
 [versions]
-agp = "8.4.0"
+agp = "8.4.2"
+androidDriver = "2.0.1"
+colorsCore = "1.1.0"
 kotlin = "1.9.20"
-compose = "1.5.4"
+compose = "1.6.8"
 compose-compiler = "1.5.4"
-compose-material3 = "1.1.2"
-androidx-activityCompose = "1.8.0"
+compose-material3 = "1.2.1"
+androidx-activityCompose = "1.9.0"
+koin = "3.2.0"
+kotlinxDatetime = "0.6.0"
+uuid = "0.8.4"
 
 [libraries]
+android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "androidDriver" }
+colors-core = { module = "com.chrynan.colors:colors-core", version.ref = "colorsCore" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
@@ -14,6 +21,14 @@ compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = 
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
+koin = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
+native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "androidDriver" }
+sqlite-driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "androidDriver" }
+uuid = { module = "com.benasher44:uuid", version.ref = "uuid" }
+
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
