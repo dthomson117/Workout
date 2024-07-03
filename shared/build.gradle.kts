@@ -14,11 +14,11 @@ kotlin {
     }
 
     task("testClasses")
-    
+
     listOf(
         iosX64(),
         iosArm64(),
-        iosSimulatorArm64()
+        iosSimulatorArm64(),
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
@@ -28,26 +28,29 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation("com.chrynan.colors:colors-core:1.1.0")
-            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.0")
-            implementation("com.benasher44:uuid:0.8.4")
+            implementation(libs.colors.core)
+            implementation(libs.kotlinx.datetime)
+            implementation(libs.uuid)
+            implementation(libs.koin)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+            implementation(libs.koin.test)
         }
     }
 
     sourceSets.androidMain.dependencies {
-        implementation("app.cash.sqldelight:android-driver:2.0.1")
+        implementation(libs.android.driver)
+        implementation(libs.koin.android)
     }
 
     // or iosMain, windowsMain, etc.
     sourceSets.nativeMain.dependencies {
-        implementation("app.cash.sqldelight:native-driver:2.0.1")
+        implementation(libs.native.driver)
     }
 
     sourceSets.jvmMain.dependencies {
-        implementation("app.cash.sqldelight:sqlite-driver:2.0.1")
+        implementation(libs.sqlite.driver)
     }
 }
 
