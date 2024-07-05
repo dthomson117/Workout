@@ -1,4 +1,4 @@
-package com.workout.android
+package com.workout.android.presentation.segments.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
