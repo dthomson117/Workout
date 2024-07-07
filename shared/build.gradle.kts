@@ -42,6 +42,9 @@ kotlin {
     sourceSets.androidMain.dependencies {
         implementation(libs.android.driver)
         implementation(libs.koin.android)
+        implementation(libs.koin.androidx.workmanager)
+        implementation(libs.koin.androidx.compose)
+        implementation(libs.androidx.core.splashscreen)
     }
 
     // or iosMain, windowsMain, etc.
