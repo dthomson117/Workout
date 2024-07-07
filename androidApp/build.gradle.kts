@@ -11,13 +11,15 @@ android {
         minSdk = 26
         targetSdk = 34
         versionCode = 1
-        versionName = "1.0"
+        versionName = "0.1"
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+        kotlinCompilerExtensionVersion =
+            libs.versions.compose.compiler
+                .get()
     }
     packaging {
         resources {
@@ -36,6 +38,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    sourceSets["main"].resources.setSrcDirs(
+        listOf(
+            "shared/src/commonMain/res",
+            "androidApp/src/main/res",
+        ),
+    )
 }
 
 dependencies {

@@ -9,7 +9,6 @@ import com.workout.android.di.KoinInitialiser
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
-
     private val mainViewModel: MainViewModel by viewModel<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +23,6 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             MyApplicationTheme {
-
             }
             MainScreen()
         }
