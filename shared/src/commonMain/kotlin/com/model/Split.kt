@@ -4,6 +4,6 @@ import com.chrynan.colors.Color
 
 class Split(
     name: String,
-    current: Boolean = true,
+    current: Boolean,
     colour: Color,
 )
