@@ -1,7 +1,7 @@
 CREATE TABLE Sets (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     reps INTEGER NOT NULL,
-    weight INTEGER NOT NULL,
+    weight REAL NOT NULL,
     exercise INTEGER NOT NULL,
     workout INTEGER NOT NULL
 );
