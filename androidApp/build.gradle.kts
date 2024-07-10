@@ -45,6 +45,7 @@ android {
             "androidApp/src/main/res",
         ),
     )
+    buildToolsVersion = "34.0.0"
 }
 
 dependencies {
@@ -55,5 +56,7 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.koin.android)
     implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
     debugImplementation(libs.compose.ui.tooling)
 }

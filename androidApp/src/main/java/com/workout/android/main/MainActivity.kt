@@ -4,8 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.compose.rememberNavController
 import com.workout.android.MyApplicationTheme
 import com.workout.android.di.KoinInitialiser
+import com.workout.android.presentation.BaseScreen
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
@@ -22,9 +24,11 @@ class MainActivity : ComponentActivity() {
         }
 
         setContent {
+            val navController = rememberNavController()
+
             MyApplicationTheme {
             }
-            MainScreen()
+            BaseScreen(navController)
         }
     }
 }
