@@ -59,5 +59,6 @@ dependencies {
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.material.icons.extended)
+    implementation(libs.androidx.ui.text.google.fonts)
     debugImplementation(libs.compose.ui.tooling)
 }
