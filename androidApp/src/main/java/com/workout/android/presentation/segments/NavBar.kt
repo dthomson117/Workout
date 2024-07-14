@@ -137,5 +137,5 @@ object NavBarItems {
         )
 
     // creating a list of all the tabs
-    val tabBarItems = listOf(sideTab, settingsTab, profileTab, calendarTab)
+    val tabBarItems = listOf(settingsTab, profileTab, calendarTab, sideTab)
 }
