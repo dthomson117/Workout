@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    id("app.cash.sqldelight") version "2.0.1"
+    alias(libs.plugins.sqlDelight)
 }
 
 kotlin {
@@ -18,7 +18,7 @@ kotlin {
     listOf(
         iosX64(),
         iosArm64(),
-        iosSimulatorArm64()
+        iosSimulatorArm64(),
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
@@ -72,7 +72,8 @@ android {
 sqldelight {
     databases {
         create("AppDatabase") {
-            packageName.set("com.data")
+            packageName.set("com.workout")
+            generateAsync.set(true)
         }
     }
 }

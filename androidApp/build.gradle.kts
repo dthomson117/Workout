@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.kotlinCompose)
 }
 
 android {
@@ -16,10 +17,12 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion =
-            libs.versions.compose.compiler
-                .get()
+    composeCompiler {
+        composeOptions {
+            kotlinCompilerExtensionVersion =
+                libs.versions.compose.compiler
+                    .get()
+        }
     }
     packaging {
         resources {
@@ -52,7 +55,6 @@ dependencies {
     implementation(projects.shared)
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.tooling.preview)
-    implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
     implementation(libs.koin.android)
     implementation(libs.androidx.core.splashscreen)
@@ -60,5 +62,6 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.androidx.ui.text.google.fonts)
+    implementation(libs.androidx.material3.android)
     debugImplementation(libs.compose.ui.tooling)
 }

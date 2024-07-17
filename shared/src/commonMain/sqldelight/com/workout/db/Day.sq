@@ -11,3 +11,9 @@ CREATE UNIQUE INDEX DAY_UUID ON Day(id);
 insert:
 INSERT INTO Day(id, date, progress)
 VALUES (?, ?, ?);
+
+removeAll:
+DELETE FROM Day;
+
+selectAll:
+SELECT Day.* FROM Day;

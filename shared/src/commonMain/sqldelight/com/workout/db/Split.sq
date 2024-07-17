@@ -9,5 +9,6 @@ CREATE TABLE Split (
 
 CREATE UNIQUE INDEX SPLIT_UUID ON Split(id);
 
+insert:
 INSERT INTO Split(id, name, current, colour)
 VALUES (?, ?, ?, ?);

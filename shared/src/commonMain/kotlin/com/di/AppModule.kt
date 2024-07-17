@@ -2,6 +2,6 @@ package com.di
 
 import org.koin.dsl.module
 
-val appModule = module {
-    
-}
+val appModule =
+    module {
+    }

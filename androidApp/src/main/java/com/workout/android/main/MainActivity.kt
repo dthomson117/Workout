@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity() {
             val navController = rememberNavController()
 
             AppTheme {
-                MainScreen(navController)
+                MainScreen(navController, mainViewModel)
             }
         }
     }
