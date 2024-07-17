@@ -1,7 +1,10 @@
 CREATE TABLE Split_Exercise (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     split INTEGER NOT NULL,
-    exercise INTEGER NOT NULL
+    exercise INTEGER NOT NULL,
+    FOREIGN KEY (split) REFERENCES Split(id),
+    FOREIGN KEY (exercise) REFERENCES Exercise(id)
+
 );
 
 CREATE UNIQUE INDEX SPLIT_EXERCISE_UUID ON Split_Exercise(id);

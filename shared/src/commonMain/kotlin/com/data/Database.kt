@@ -7,9 +7,14 @@ class Database(
     databaseDriverFactory: DriverFactory,
 ) {
     private val database = createDatabase(databaseDriverFactory)
-    private val dbQuery = database.dayQueries
+    private val dbDayQuery = database.dayQueries
+    private val dbSplitQuery = database.splitQueries
 
-    fun getAllDays(): List<Day> = dbQuery.selectAll(::mapDays).executeAsList()
+    fun getAllDays(): List<Day> = dbDayQuery.selectAll(::mapDays).executeAsList()
+
+    suspend fun addPplSplit() {
+        dbSplitQuery.addDefaultPPL()
+    }
 
     private fun mapDays(
         id: Long,
