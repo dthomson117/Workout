@@ -1,7 +1,7 @@
 import kotlinx.datetime.LocalDate;
 
 CREATE TABLE Day (
-    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     date TEXT AS LocalDate NOT NULL,
     progress REAL NOT NULL
 );
@@ -17,3 +17,6 @@ DELETE FROM Day;
 
 selectAll:
 SELECT Day.* FROM Day;
+
+select:
+SELECT Day.* FROM Day WHERE Day.id == ?;

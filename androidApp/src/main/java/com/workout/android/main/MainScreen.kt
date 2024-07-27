@@ -6,13 +6,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
+import com.viewmodels.MainViewModelState
 import com.workout.android.presentation.segments.DefaultScaffolding
 
 @Suppress("ktlint:standard:function-naming")
 @Composable
 fun MainScreen(
     navController: NavController,
-    viewModel: MainViewModel,
+    uiState: MainViewModelState,
 ) {
     DefaultScaffolding(
         navController = navController,

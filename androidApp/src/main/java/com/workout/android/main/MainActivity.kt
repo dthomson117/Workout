@@ -1,13 +1,20 @@
 package com.workout.android.main
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.rememberNavController
-import com.workout.android.di.KoinInitialiser
+import com.di.commonModule
+import com.viewmodels.MainViewModel
+import com.workout.android.di.androidModule
 import com.workout.android.presentation.theme.AppTheme
+import org.koin.android.ext.android.getKoin
+import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.startKoin
 
 class MainActivity : ComponentActivity() {
     private val mainViewModel: MainViewModel by viewModel<MainViewModel>()
@@ -16,17 +23,29 @@ class MainActivity : ComponentActivity() {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
 
-        KoinInitialiser.initialiseKoin(this@MainActivity)
+        initialiseKoin(this@MainActivity)
+
+        setContent {
+            val navController = rememberNavController()
+            val uiState = mainViewModel.uiState.collectAsStateWithLifecycle().value
+
+            AppTheme {
+                MainScreen(navController, uiState)
+            }
+        }
 
         splashScreen.setKeepOnScreenCondition {
             false
         }
+    }
 
-        setContent {
-            val navController = rememberNavController()
-
-            AppTheme {
-                MainScreen(navController, mainViewModel)
+    private fun initialiseKoin(context: Context) {
+        try {
+            getKoin()
+        } catch (e: IllegalStateException) {
+            startKoin {
+                androidContext(context)
+                modules(androidModule, commonModule)
             }
         }
     }

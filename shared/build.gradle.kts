@@ -32,6 +32,8 @@ kotlin {
             implementation(libs.kotlinx.datetime)
             implementation(libs.uuid)
             implementation(libs.koin)
+            implementation(libs.androidx.lifecycle.viewmodel.ktx)
+            implementation(libs.kotlinx.coroutines)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
