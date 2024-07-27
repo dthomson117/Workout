@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.sqlDelight)
+    kotlin("plugin.serialization") version "2.0.0"
 }
 
 kotlin {
@@ -32,7 +33,7 @@ kotlin {
             implementation(libs.kotlinx.datetime)
             implementation(libs.uuid)
             implementation(libs.koin)
-            implementation(libs.androidx.lifecycle.viewmodel.ktx)
+            implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.kotlinx.coroutines)
         }
         commonTest.dependencies {
