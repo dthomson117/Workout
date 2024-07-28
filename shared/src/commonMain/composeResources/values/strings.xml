@@ -3,6 +3,6 @@
     <string name="app_name">Workout</string>
     <string name="settings_cd">Open settings</string>
     <string name="profile_cd">Go to profile</string>
-    <string name="caldenar_cd">Open calender</string>
+    <string name="calendar_cd">Open calender</string>
     <string name="side_menu_cd">Expand side menu</string>
 </resources>

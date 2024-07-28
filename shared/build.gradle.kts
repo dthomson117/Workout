@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.sqlDelight)
+    alias(libs.plugins.kotlinCompose)
+    alias(libs.plugins.jetbrainsCompose)
     kotlin("plugin.serialization") version "2.0.0"
 }
 
@@ -35,6 +37,14 @@ kotlin {
             implementation(libs.koin)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.kotlinx.coroutines)
+
+            implementation(compose.runtime)
+            implementation(compose.ui)
+            implementation(compose.material3)
+            implementation(compose.materialIconsExtended)
+            implementation(compose.ui)
+            implementation(compose.components.resources)
+            implementation(libs.navigation.compose)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -79,4 +89,9 @@ sqldelight {
             generateAsync.set(true)
         }
     }
+}
+
+compose.resources {
+    publicResClass = true
+    generateResClass = always
 }

@@ -1,8 +1,8 @@
-package com.workout.android.presentation.segments
+package com.app.presentation.segments
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.FitnessCenter
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -18,7 +18,7 @@ fun TopBar() {
     CenterAlignedTopAppBar(
         title = {
             Icon(
-                imageVector = Icons.Filled.FitnessCenter,
+                imageVector = Icons.Filled.Person,
                 contentDescription = "",
                 tint = Color.Red,
                 modifier =

@@ -44,7 +44,6 @@ android {
 
     sourceSets["main"].resources.setSrcDirs(
         listOf(
-            "shared/src/commonMain/res",
             "androidApp/src/main/res",
         ),
     )

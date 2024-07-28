@@ -1,4 +1,4 @@
-package com.workout.android.presentation.segments
+package com.app.presentation.segments
 
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.size
@@ -24,10 +24,14 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.workout.android.R
+import org.jetbrains.compose.resources.StringResource
+import workout.shared.generated.resources.Res
+import workout.shared.generated.resources.calendar_cd
+import workout.shared.generated.resources.profile_cd
+import workout.shared.generated.resources.settings_cd
+import workout.shared.generated.resources.side_menu_cd
 
 @Suppress("ktlint:standard:function-naming")
 @Composable
@@ -73,7 +77,7 @@ fun TabBarIconView(
     selectedIcon: ImageVector,
     unselectedIcon: ImageVector,
     badgeAmount: Int? = null,
-    contentDescriptionId: Int,
+    contentDescriptionId: StringResource,
 ) {
     BadgedBox(badge = { TabBarBadgeView(badgeAmount) }) {
         Icon(
@@ -83,7 +87,7 @@ fun TabBarIconView(
                 } else {
                     unselectedIcon
                 },
-            contentDescription = stringResource(contentDescriptionId),
+            contentDescription = contentDescriptionId.toString(),
             modifier =
                 Modifier
                     .size(32.dp),
@@ -107,7 +111,7 @@ data class TabBarItem(
     val selectedIcon: ImageVector,
     val unselectedIcon: ImageVector,
     val badgeAmount: Int? = null,
-    val contentDescriptionId: Int,
+    val contentDescriptionId: StringResource,
 )
 
 object NavBarItems {
@@ -115,25 +119,25 @@ object NavBarItems {
         TabBarItem(
             selectedIcon = Icons.Filled.Settings,
             unselectedIcon = Icons.Outlined.Settings,
-            contentDescriptionId = R.string.settings_cd,
+            contentDescriptionId = Res.string.settings_cd,
         )
     private val profileTab =
         TabBarItem(
             selectedIcon = Icons.Filled.AccountCircle,
             unselectedIcon = Icons.Outlined.AccountCircle,
-            contentDescriptionId = R.string.profile_cd,
+            contentDescriptionId = Res.string.profile_cd,
         )
     private val calendarTab =
         TabBarItem(
             selectedIcon = Icons.Filled.DateRange,
             unselectedIcon = Icons.Outlined.DateRange,
-            contentDescriptionId = R.string.caldenar_cd,
+            contentDescriptionId = Res.string.calendar_cd,
         )
     private val sideTab =
         TabBarItem(
             selectedIcon = Icons.Filled.Menu,
             unselectedIcon = Icons.Outlined.Menu,
-            contentDescriptionId = R.string.side_menu_cd,
+            contentDescriptionId = Res.string.side_menu_cd,
         )
 
     // creating a list of all the tabs

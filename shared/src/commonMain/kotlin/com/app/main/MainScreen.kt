@@ -1,4 +1,4 @@
-package com.workout.android.main
+package com.app.main
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -6,8 +6,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
+import com.app.presentation.segments.DefaultScaffolding
 import com.viewmodels.MainViewModelState
-import com.workout.android.presentation.segments.DefaultScaffolding
 
 @Suppress("ktlint:standard:function-naming")
 @Composable

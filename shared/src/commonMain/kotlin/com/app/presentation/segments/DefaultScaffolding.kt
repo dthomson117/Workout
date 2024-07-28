@@ -1,4 +1,4 @@
-package com.workout.android.presentation.segments
+package com.app.presentation.segments
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets
