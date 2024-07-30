@@ -1,0 +1,22 @@
+import com.chrynan.colors.Color;
+
+CREATE TABLE Split (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    name TEXT NOT NULL,
+    current INTEGER NOT NULL,
+    colour TEXT AS Color NOT NULL
+);
+
+CREATE UNIQUE INDEX SPLIT_UUID ON Split(id);
+
+insert:
+INSERT INTO Split(id, name, current, colour)
+VALUES (?, ?, ?, ?);
+
+addDefaultPPL:
+INSERT INTO Split(name, current, colour)
+VALUES ("Push", 1, ""), ("Pull", 1, ""), ("Legs", 1, "");
+
+addDefaultBro:
+INSERT INTO Split(name, current, colour)
+VALUES ("Push", 1, ""), ("Pull", 1, ""), ("Legs", 1, "");

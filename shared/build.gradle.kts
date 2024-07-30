@@ -1,7 +1,10 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    id("app.cash.sqldelight") version "2.0.1"
+    alias(libs.plugins.sqlDelight)
+    alias(libs.plugins.kotlinCompose)
+    alias(libs.plugins.jetbrainsCompose)
+    kotlin("plugin.serialization") version "2.0.0"
 }
 
 kotlin {
@@ -18,7 +21,7 @@ kotlin {
     listOf(
         iosX64(),
         iosArm64(),
-        iosSimulatorArm64()
+        iosSimulatorArm64(),
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
@@ -32,6 +35,17 @@ kotlin {
             implementation(libs.kotlinx.datetime)
             implementation(libs.uuid)
             implementation(libs.koin)
+            implementation(libs.androidx.lifecycle.viewmodel)
+            implementation(libs.kotlinx.coroutines)
+
+            implementation(compose.runtime)
+            implementation(compose.ui)
+            implementation(compose.material3)
+            implementation(compose.materialIconsExtended)
+            implementation(compose.ui)
+            implementation(compose.components.resources)
+            implementation(libs.navigation.compose)
+            api(libs.logging)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -72,7 +86,13 @@ android {
 sqldelight {
     databases {
         create("AppDatabase") {
-            packageName.set("com.data")
+            packageName.set("com.workout")
+            generateAsync.set(true)
         }
     }
+}
+
+compose.resources {
+    publicResClass = true
+    generateResClass = always
 }

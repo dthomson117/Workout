@@ -1,0 +1,22 @@
+import kotlinx.datetime.LocalDate;
+
+CREATE TABLE Day (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TEXT AS LocalDate NOT NULL,
+    progress REAL NOT NULL
+);
+
+CREATE UNIQUE INDEX DAY_UUID ON Day(id);
+
+insert:
+INSERT INTO Day(id, date, progress)
+VALUES (?, ?, ?);
+
+removeAll:
+DELETE FROM Day;
+
+selectAll:
+SELECT Day.* FROM Day;
+
+select:
+SELECT Day.* FROM Day WHERE Day.id == ?;

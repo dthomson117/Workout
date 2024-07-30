@@ -1,9 +1,11 @@
 package com.data
 
 import app.cash.sqldelight.db.SqlDriver
-import com.database.Day
-import com.database.Split
+import com.workout.AppDatabase
+import com.workout.db.Day
+import com.workout.db.Split
 
+@Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
 expect class DriverFactory {
     fun createDriver(): SqlDriver
 }

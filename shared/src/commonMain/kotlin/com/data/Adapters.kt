@@ -6,22 +6,14 @@ import kotlinx.datetime.LocalDate
 
 val localDateAdapter =
     object : ColumnAdapter<LocalDate, String> {
-        override fun decode(databaseValue: String): LocalDate {
-            return LocalDate.parse(databaseValue)
-        }
+        override fun decode(databaseValue: String): LocalDate = LocalDate.parse(databaseValue)
 
-        override fun encode(value: LocalDate): String {
-            return value.toString()
-        }
+        override fun encode(value: LocalDate): String = value.toString()
     }
 
 val colorAdapter =
     object : ColumnAdapter<Color, String> {
-        override fun decode(databaseValue: String): Color {
-            return Color(databaseValue)
-        }
+        override fun decode(databaseValue: String): Color = Color(databaseValue)
 
-        override fun encode(value: Color): String {
-            return Color.toString()
-        }
+        override fun encode(value: Color): String = Color.toString()
     }
