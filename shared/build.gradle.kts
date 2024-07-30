@@ -45,6 +45,7 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(libs.navigation.compose)
+            api(libs.logging)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

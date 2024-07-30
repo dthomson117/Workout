@@ -1,9 +1,9 @@
 package com.workout.android.di
 
+import com.app.main.MainViewModel
 import com.data.DriverFactory
 import com.domain.day.DayReader
 import com.domain.day.DayWriter
-import com.viewmodels.MainViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module

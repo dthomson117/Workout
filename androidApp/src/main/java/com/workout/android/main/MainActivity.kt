@@ -9,9 +9,9 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.rememberNavController
 import com.app.main.MainScreen
+import com.app.main.MainViewModel
 import com.app.presentation.theme.AppTheme
 import com.di.commonModule
-import com.viewmodels.MainViewModel
 import com.workout.android.di.androidModule
 import org.koin.android.ext.android.getKoin
 import org.koin.android.ext.koin.androidContext
@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
             val uiState = mainViewModel.uiState.collectAsStateWithLifecycle().value
 
             AppTheme {
-                MainScreen(navController, uiState)
+                MainScreen(navController, mainViewModel, uiState, mainViewModel::handleUiEvent)
             }
         }
 
