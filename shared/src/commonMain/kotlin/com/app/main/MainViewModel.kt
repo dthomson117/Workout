@@ -15,7 +15,7 @@ import kotlinx.datetime.LocalDate
 
 class MainViewModel(
     private val dayReader: DayReader,
-    private val dayWriter: DayWriter,
+    private val dayWriter: DayWriter
 ) : BaseViewModel<MainViewModelState>(MainViewModelState()) {
     init {
         updateDays()
@@ -25,6 +25,7 @@ class MainViewModel(
         viewModelScope.launch {
             when (event) {
                 is MainUiEvents.SubmitProgress -> addDay(event.progress)
+                is MainUiEvents.ValidateProgress -> validateProgress(event.progress)
                 is MainUiEvents.RefreshDays -> updateDays()
             }
         }
@@ -33,7 +34,7 @@ class MainViewModel(
     private fun updateDays() {
         setState {
             copy(
-                days = getDays(),
+                days = getDays()
             )
         }
     }
@@ -45,45 +46,60 @@ class MainViewModel(
 
         setState {
             copy(
-                days = newDays,
+                days = newDays
             )
         }
     }
 
-    fun validateProgress(value: String): Boolean {
+    fun validateProgress(value: String) {
+        var valid: Boolean
         if (value.isEmpty()) {
-            return false
+            valid = false
         }
 
         val trimmedValue = value.trim()
 
         try {
             val progress = trimmedValue.toDouble()
-            return (progress in 0.0..100.0)
+            valid = (progress in 0.0..100.0)
         } catch (e: Exception) {
             Napier.w(tag = this::class.simpleName, message = "Invalid input")
-            return false
+            valid = false
+        }
+
+        setState {
+            copy(
+                validProgress = valid
+            )
         }
     }
 
     private suspend fun addDay(value: String) {
+        if (!uiState.value.validProgress) {
+            return
+        }
+
         viewModelScope.launch {
             dayWriter.insert(
                 LocalDate.fromEpochDays(1),
-                value.toDouble(),
+                value.toDouble()
             )
         }
 
         setState {
             copy(
-                days = dayReader.getAll(),
+                days = dayReader.getAll()
             )
         }
     }
 
     sealed interface MainUiEvents {
         data class SubmitProgress(
-            val progress: String,
+            val progress: String
+        ) : MainUiEvents
+
+        data class ValidateProgress(
+            val progress: String
         ) : MainUiEvents
 
         data object RefreshDays : MainUiEvents
@@ -96,5 +112,5 @@ data class MainViewModelState(
     val splits: List<Split> = listOf(),
     val exercises: List<Exercise> = listOf(),
     val workouts: List<Workout> = listOf(),
-    val test: String? = null,
+    val validProgress: Boolean = true
 )

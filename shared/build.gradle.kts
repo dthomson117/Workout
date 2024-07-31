@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.sqlDelight)
     alias(libs.plugins.kotlinCompose)
     alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.ktlint)
     kotlin("plugin.serialization") version "2.0.0"
 }
 

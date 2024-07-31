@@ -28,41 +28,43 @@ import com.app.presentation.segments.DefaultScaffolding
 @Composable
 fun MainScreen(
     navController: NavController,
-    mainViewModel: MainViewModel,
     uiState: MainViewModelState,
-    handleUiEvent: (MainViewModel.MainUiEvents) -> Unit,
+    handleUiEvent: (MainViewModel.MainUiEvents) -> Unit
 ) {
     DefaultScaffolding(
-        navController = navController,
+        navController = navController
     ) { padding ->
         Column(
             Modifier
-                .padding(padding),
+                .padding(padding)
         ) {
             Row {
                 var value by remember { mutableStateOf(TextFieldValue("0")) }
 
                 OutlinedTextField(
                     value = value,
-                    onValueChange = { value = it },
+                    onValueChange = {
+                        value = it
+                        handleUiEvent.invoke(MainViewModel.MainUiEvents.ValidateProgress(it.text))
+                    },
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
                     label = { Text("Progress") },
-                    isError = mainViewModel.validateProgress(value.text),
-                    supportingText = { if (!mainViewModel.validateProgress(value.text)) Text("Only enter a valid number") },
-                    modifier = Modifier.padding(16.dp),
+                    isError = uiState.validProgress,
+                    supportingText = { if (!uiState.validProgress) Text("Only enter a valid number") },
+                    modifier = Modifier.padding(16.dp)
                 )
 
                 IconButton(
                     onClick = { handleUiEvent.invoke(MainViewModel.MainUiEvents.SubmitProgress(value.text)) },
-                    modifier = Modifier.align(Alignment.CenterVertically),
+                    modifier = Modifier.align(Alignment.CenterVertically)
                 ) {
                     Icon(Icons.Filled.Add, "add progress")
                 }
             }
 
             IconButton(
-                onClick = { handleUiEvent.invoke(MainViewModel.MainUiEvents.RefreshDays) },
+                onClick = { handleUiEvent.invoke(MainViewModel.MainUiEvents.RefreshDays) }
             ) {
                 Icon(Icons.Filled.Refresh, "refresh days")
             }

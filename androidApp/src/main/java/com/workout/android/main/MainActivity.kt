@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
             val uiState = mainViewModel.uiState.collectAsStateWithLifecycle().value
 
             AppTheme {
-                MainScreen(navController, mainViewModel, uiState, mainViewModel::handleUiEvent)
+                MainScreen(navController, uiState, mainViewModel::handleUiEvent)
             }
         }
 
