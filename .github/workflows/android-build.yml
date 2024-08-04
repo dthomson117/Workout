@@ -1,0 +1,4 @@
+name: automated-build-android-app-with-github-action
+uses: amirisback/automated-build-android-app-with-github-action@2.2.4
+run-name: ${{ github.actor }} Building Android App
+on: [push]
