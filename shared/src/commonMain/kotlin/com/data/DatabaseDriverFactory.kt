@@ -6,12 +6,12 @@ import com.workout.db.Day
 import com.workout.db.Split
 
 @Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
-expect class DriverFactory {
+expect class DatabaseDriverFactory {
     fun createDriver(): SqlDriver
 }
 
-fun createDatabase(driverFactory: DriverFactory): AppDatabase {
-    val driver = driverFactory.createDriver()
+fun createDatabase(databaseDriverFactory: DatabaseDriverFactory): AppDatabase {
+    val driver = databaseDriverFactory.createDriver()
     val database =
         AppDatabase(
             driver = driver,

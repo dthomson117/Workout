@@ -2,7 +2,7 @@ package com.data
 
 import app.cash.sqldelight.db.SqlDriver
 
-actual class DriverFactory {
+actual class DatabaseDriverFactory {
     actual fun createDriver(): SqlDriver {
         TODO("Not yet implemented")
     }
